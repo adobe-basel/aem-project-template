@@ -31,7 +31,7 @@
       
   <modules>
             
-    <module>all</module>
+    <module>application</module>
             
     <module>core</module>
             
@@ -39,10 +39,8 @@
              
     <module>ui.apps</module>
             
-    <module>ui.apps.structure</module>
-            
-    <module>ui.config</module>
-            
+    <module>ui.apps.structure</module>            
+
     <module>ui.content</module>
             
     <module>it.tests</module>
@@ -83,7 +81,7 @@
             
     <aem.sdk.api>2022.10.9398.20221020T071514Z-220900</aem.sdk.api>
             
-    <aemanalyser.version>1.4.10</aemanalyser.version>
+    <aemanalyser.version>1.4.21-SNAPSHOT</aemanalyser.version>
             
     <componentGroupName>My Site</componentGroupName>
         
