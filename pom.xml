@@ -30,10 +30,8 @@
   <description>My Site</description>
       
   <modules>
-            
-    <module>application</module>
-            
-    <module>core</module>
+    <!-- OSGi Bundles -->
+    <module>bundle_core</module>
             
     <module>ui.frontend</module>
              
@@ -48,7 +46,7 @@
     <module>dispatcher</module>
             
     <module>ui.tests</module>
-      
+    <module>application</module>
   </modules>
       
   <properties>

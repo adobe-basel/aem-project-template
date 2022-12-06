@@ -24,7 +24,7 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
     <artifactId>mysite.core</artifactId>
-    <name>My Site - Core</name>
+    <name>My Site - Core Bundle</name>
     <description>Core bundle for My Site</description>
     <build>
         <plugins>
