@@ -56,25 +56,4 @@
             </plugin>
         </plugins>
     </build>
-    <dependencies>
-        <dependency>
-            <groupId>com.mysite</groupId>
-            <artifactId>mysite.ui.apps</artifactId>
-            <version>${project.version}</version>
-            <type>zip</type>
-        </dependency>
-        <dependency>
-            <groupId>com.mysite</groupId>
-            <artifactId>mysite.ui.content</artifactId>
-            <version>${project.version}</version>
-            <type>zip</type>
-        </dependency>
-        <dependency>
-            <groupId>com.mysite</groupId>
-            <artifactId>mysite.ui.config</artifactId>
-            <version>${project.version}</version>
-            <type>zip</type>
-        </dependency>
-
-    </dependencies>
 </project>
