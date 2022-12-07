@@ -2,7 +2,7 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/java
 {
 	"name": "Java",
-	"image": "docker.io/bosschaert/rde_dc:2",
+	"image": "docker.io/bosschaert/rde_dc:3",
 
 	"postCreateCommand": "mvn install",
 
@@ -14,5 +14,8 @@
 				"${containerWorkspaceFolder}/.devcontainer/vsix/rde-ide-0.0.1.vsix"
 			]
 		}
-	}
+	},
+        "containerEnv": {
+            "AEM_EXPERIMENTAL": "TRUE"
+        }
 }
