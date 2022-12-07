@@ -113,29 +113,29 @@
           <groupId>com.github.eirslett</groupId>
           <artifactId>frontend-maven-plugin</artifactId>
           <version>1.12.1</version>
-          <configuration> 
-            <nodeVersion>v16.17.0</nodeVersion>  
+          <configuration>
+            <nodeVersion>v16.17.0</nodeVersion>
             <npmVersion>8.15.0</npmVersion>
           </configuration>
-          <executions>  
-            <execution>         
-              <id>install node and npm</id>           
-              <goals>                  
-                <goal>install-node-and-npm</goal>              
-              </goals>        
+          <executions> 
+            <execution>
+              <id>install node and npm</id>
+              <goals>
+                <goal>install-node-and-npm</goal>
+              </goals>
             </execution>
             <execution>
               <id>npm ci</id>
-              <goals>       
-                <goal>npm</goal>    
-              </goals>                
+              <goals>
+                <goal>npm</goal>
+              </goals>
             </execution>
           </executions>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-jar-plugin</artifactId>
-          <version>3.3.0</version> 
+          <version>3.3.0</version>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -271,7 +271,7 @@ Bundle-DocURL:
           <artifactId>build-helper-maven-plugin</artifactId>
           <version>3.3.0</version>
         </plugin>
-                        
+
         <!--This plugin's configuration is used to store Eclipse
                     m2e settings only. It has no influence on the Maven build itself. -->
         <plugin>
@@ -330,13 +330,13 @@ Bundle-DocURL:
   </build>
 
   <!-- ====================================================================== -->
-  <!-- D E P E N D E N C I E S -->    
+  <!-- D E P E N D E N C I E S -->
   <!-- ====================================================================== -->
-      
+
   <dependencyManagement>
     <dependencies>
       <dependency>
-        <groupId>com.adobe.aem</groupId>      
+        <groupId>com.adobe.aem</groupId>
         <artifactId>aem-sdk-api</artifactId>
         <version>${aem.sdk.api}</version>
         <scope>provided</scope>
@@ -349,7 +349,7 @@ Bundle-DocURL:
         <type>pom</type>
         <scope>import</scope>
       </dependency>
-                  
+
       <dependency>
         <groupId>org.mockito</groupId>
         <artifactId>mockito-core</artifactId>
@@ -377,7 +377,7 @@ Bundle-DocURL:
       <dependency>
         <groupId>org.apache.sling</groupId>
         <artifactId>org.apache.sling.testing.caconfig-mock-plugin</artifactId>
-        <version>1.4.0</version> 
+        <version>1.4.0</version>
         <scope>test</scope>
       </dependency>
       <dependency>
@@ -389,7 +389,7 @@ Bundle-DocURL:
       <dependency>
         <groupId>com.adobe.cq</groupId>
         <artifactId>core.wcm.components.testing.aem-mock-plugin</artifactId>
-        <version>2.20.8</version>               
+        <version>2.20.8</version>
         <scope>test</scope>
       </dependency>
     </dependencies>
