@@ -20,6 +20,7 @@ jobs:
 
   pipeline-execution:
     name: Execute Cloud Manager Code Quality Pipeline
+    runs-on: ubuntu-latest
     env:
       CLIENTID: ${{ secrets.CM_CLIENT_ID }}
       CLIENTSECRET: ${{ secrets.CM_CLIENT_SECRET }}
