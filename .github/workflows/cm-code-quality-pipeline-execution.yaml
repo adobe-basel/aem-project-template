@@ -19,7 +19,8 @@ jobs:
           destination_branch: "refs/heads/*"
 
   pipeline-execution:
-    with:
+    name: Execute Cloud Manager Code Quality Pipeline
+    env:
       CLIENTID: ${{ secrets.CM_CLIENT_ID }}
       CLIENTSECRET: ${{ secrets.CM_CLIENT_SECRET }}
       TECHNICALACCOUNTID: ${{ secrets.CM_TA_EMAIL }}
