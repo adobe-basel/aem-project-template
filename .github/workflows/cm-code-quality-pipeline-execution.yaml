@@ -1,0 +1,34 @@
+name: Cloud Manager Code Quality Pipeline Execution
+
+on: push
+
+jobs:
+  git-sync:
+    name: Sync to Cloud Manager git repository
+    runs-on: ubuntu-latest
+    env:
+      cm_git_username: ${{ secrets.CM_GIT_USERNAME }}
+      cm_git_password: ${{ secrets.CM_GIT_PASSWORD }}
+    steps:
+      - name: Push GitHub branch to Cloud Manager git repository
+        uses: wei/git-sync@v3
+        with:
+          source_repo: "adobe-basel/aem-project-template"
+          source_branch: "refs/remotes/source/*"
+          destination_repo: "https://${{ env.cm_git_username }}:${{ env.cm_git_password }}@git.cloudmanager.adobe.com/stage-rdeteststage/RDEGW-p60706-uk13696"
+          destination_branch: "refs/heads/*"
+
+  pipeline-execution:
+    with:
+      CLIENTID: ${{ secrets.CM_CLIENT_ID }}
+      CLIENTSECRET: ${{ secrets.CM_CLIENT_SECRET }}
+      TECHNICALACCOUNTID: ${{ secrets.CM_TA_EMAIL }}
+      IMSORGID: ${{ secrets.CM_ORG_ID }}
+      KEY: ${{ secrets.CM_PRIVATE_KEY }}
+      PIPELINEID: 478904
+      PROGRAMID: ${{ secrets.CM_PROGRAM_ID }}
+    steps:
+      - name: Get or Create Cloud Manager Pipeline
+        run: echo "Checking for existing Cloud Manager Pipeline for branch..."
+      - name: Create Cloud Manager Pipeline Execution
+        uses: adobe/aio-cloudmanager-create-execution-action@v1.0.5
