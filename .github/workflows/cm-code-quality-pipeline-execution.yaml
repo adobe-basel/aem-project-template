@@ -22,10 +22,10 @@ jobs:
     name: Execute Cloud Manager Code Quality Pipeline
     runs-on: ubuntu-latest
     env:
-      CLIENTID: ${{ secrets.CM_CLIENT_ID }}
+      clientId: ${{ secrets.CM_CLIENT_ID }}
       CLIENTSECRET: ${{ secrets.CM_CLIENT_SECRET }}
       TECHNICALACCOUNTID: ${{ secrets.CM_TA_EMAIL }}
-      IMSORGID: ${{ secrets.CM_ORG_ID }}
+      imsOrgId: ${{ secrets.CM_ORG_ID }}
       KEY: ${{ secrets.CM_PRIVATE_KEY }}
       PIPELINEID: 478904
       PROGRAMID: ${{ secrets.CM_PROGRAM_ID }}
