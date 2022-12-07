@@ -30,6 +30,7 @@
     </parent>
 
     <artifactId>mysite.ui.tests</artifactId>
+    <packaging>pom</packaging>
     <name>My Site - UI Tests</name>
     <description>UI Tests for My Site</description>
 
@@ -52,23 +53,6 @@
     </properties>
 
     <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <artifactId>maven-clean-plugin</artifactId>
-                    <version>3.1.0</version>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-resources-plugin</artifactId>
-                    <version>3.0.2</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-jar-plugin</artifactId>
-                    <version>3.2.0</version>
-                </plugin>
-            </plugins>
-        </pluginManagement>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -84,6 +68,8 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <configuration>
+                    <appendAssemblyId>false</appendAssemblyId>
+                    <attach>true</attach>
                     <descriptors>
                         <descriptor>${project.basedir}/assembly-ui-test-docker-context.xml</descriptor>
                     </descriptors>
