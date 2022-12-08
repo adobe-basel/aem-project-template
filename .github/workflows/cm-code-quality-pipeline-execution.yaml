@@ -27,7 +27,7 @@ jobs:
       - name: Get or Create Cloud Manager Pipeline
         run: echo "Checking for existing Cloud Manager Pipeline for branch..."
       - name: Create Cloud Manager Pipeline Execution
-        uses: adobe-basel/aio-cloudmanager-pipeline-action@v0.0.6
+        uses: adobe-basel/aio-cloudmanager-pipeline-action@v0.0.7
         env:
           AIO_CLI_ENV: prod
           LOG_LEVEL: debug
