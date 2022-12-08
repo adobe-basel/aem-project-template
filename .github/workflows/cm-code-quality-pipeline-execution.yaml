@@ -26,7 +26,7 @@ jobs:
       - name: Get or Create Cloud Manager Pipeline
         run: echo "Checking for existing Cloud Manager Pipeline for branch..."
       - name: Create Cloud Manager Pipeline Execution
-        uses: lykorian/aio-cloudmanager-pipeline-action@v0.0.2
+        uses: lykorian/aio-cloudmanager-pipeline-action@v0.0.3
         with:
           CLIENTID: ${{ secrets.CM_CLIENT_ID }}
           CLIENTSECRET: ${{ secrets.CM_CLIENT_SECRET }}
@@ -35,3 +35,4 @@ jobs:
           KEY: ${{ secrets.CM_PRIVATE_KEY }}
           PIPELINEID: 478904
           PROGRAMID: ${{ secrets.CM_PROGRAM_ID }}
+          BASEURL: ${{ secrets.CM_BASE_URL }}
