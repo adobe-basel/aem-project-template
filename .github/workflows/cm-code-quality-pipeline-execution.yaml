@@ -22,20 +22,22 @@ jobs:
     name: Execute Cloud Manager Code Quality Pipeline
     needs: git-sync
     runs-on: ubuntu-latest
+    timeout-minutes: 90
     steps:
       - name: Get or Create Cloud Manager Pipeline
         run: echo "Checking for existing Cloud Manager Pipeline for branch..."
       - name: Create Cloud Manager Pipeline Execution
-        uses: lykorian/aio-cloudmanager-pipeline-action@v0.0.4
+        uses: adobe-basel/aio-cloudmanager-pipeline-action@v0.0.6
         env:
-          AIO_CLI_ENV: stage
+          AIO_CLI_ENV: prod
           LOG_LEVEL: debug
         with:
-          CLIENTID: ${{ secrets.CM_CLIENT_ID }}
-          CLIENTSECRET: ${{ secrets.CM_CLIENT_SECRET }}
-          TECHNICALACCOUNTID: ${{ secrets.CM_TA_EMAIL }}
-          IMSORGID: ${{ secrets.CM_ORG_ID }}
-          KEY: ${{ secrets.CM_PRIVATE_KEY }}
-          PIPELINEID: 478904
-          PROGRAMID: ${{ secrets.CM_PROGRAM_ID }}
           BASEURL: ${{ secrets.CM_BASE_URL }}
+          IMSCONFIG: ${{ secrets.AEM_CM_INTEGRATION }}
+          PIPELINEID: 478904
+#          CLIENTID: ${{ secrets.CM_CLIENT_ID }}
+#          CLIENTSECRET: ${{ secrets.CM_CLIENT_SECRET }}
+#          TECHNICALACCOUNTID: ${{ secrets.CM_TA_EMAIL }}
+#          IMSORGID: ${{ secrets.CM_ORG_ID }}
+#          KEY: ${{ secrets.CM_PRIVATE_KEY }}
+#          PROGRAMID: ${{ secrets.CM_PROGRAM_ID }}
