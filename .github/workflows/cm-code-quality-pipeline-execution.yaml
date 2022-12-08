@@ -34,6 +34,7 @@ jobs:
         with:
           BASEURL: ${{ secrets.CM_BASE_URL }}
           IMSCONFIG: ${{ secrets.AEM_CM_INTEGRATION }}
+          PROGRAMID: ${{ secrets.AEM_CM_PROGRAM_ID }}
           PIPELINEID: 478904
 #          CLIENTID: ${{ secrets.CM_CLIENT_ID }}
 #          CLIENTSECRET: ${{ secrets.CM_CLIENT_SECRET }}
