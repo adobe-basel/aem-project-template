@@ -27,6 +27,8 @@ jobs:
         run: echo "Checking for existing Cloud Manager Pipeline for branch..."
       - name: Create Cloud Manager Pipeline Execution
         uses: lykorian/aio-cloudmanager-pipeline-action@v0.0.4
+        env:
+          LOG_LEVEL: debug
         with:
           CLIENTID: ${{ secrets.CM_CLIENT_ID }}
           CLIENTSECRET: ${{ secrets.CM_CLIENT_SECRET }}
