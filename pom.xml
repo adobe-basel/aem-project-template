@@ -257,7 +257,7 @@ Bundle-DocURL:
         <plugin>
           <groupId>com.adobe.aem</groupId>
           <artifactId>aemanalyser-maven-plugin</artifactId>
-          <version>1.5.0</version>
+          <version>1.5.2</version>
           <extensions>true</extensions>
         </plugin>
         <plugin>
