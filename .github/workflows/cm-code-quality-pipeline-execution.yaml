@@ -1,6 +1,12 @@
 name: Cloud Manager Code Quality Pipeline Execution
 
-on: push
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   git-sync:
@@ -19,25 +25,22 @@ jobs:
           destination_repo: "https://${{ env.cm_git_username }}:${{ env.cm_git_password }}@${{ env.cm_git_url }}"
           destination_branch: "refs/heads/*"
   pipeline-execution:
-    name: Execute Cloud Manager Code Quality Pipeline
+    name: Cloud Manager Code Quality Pipeline
     needs: git-sync
     runs-on: ubuntu-latest
     timeout-minutes: 90
     steps:
-      - name: Get or Create Cloud Manager Pipeline
-        run: echo "Checking for existing Cloud Manager Pipeline for branch..."
-      - name: Create Cloud Manager Pipeline Execution
-        uses: adobe-basel/aio-cloudmanager-pipeline-action@v0.0.8
+      - name: Cloud Manager Pipeline Execution
+        uses: adobe-basel/aio-cloudmanager-pipeline-action@v0.0.10
         env:
-          AIO_CLI_ENV: stage
-          LOG_LEVEL: debug
+          AIO_CLI_ENV: prod
+          # LOG_LEVEL: debug
         with:
-          BASEURL: ${{ secrets.CM_BASE_URL }}
-          #IMSCONFIG: ${{ secrets.AEM_CM_INTEGRATION }}
-          PROGRAMID: ${{ secrets.AEM_CM_PROGRAM_ID }}
-          PIPELINEID: 478904
-          CLIENTID: ${{ secrets.CM_CLIENT_ID }}
-          CLIENTSECRET: ${{ secrets.CM_CLIENT_SECRET }}
-          TECHNICALACCOUNTID: ${{ secrets.CM_TA_EMAIL }}
-          IMSORGID: ${{ secrets.CM_ORG_ID }}
-          KEY: ${{ secrets.CM_PRIVATE_KEY }}
+          IMSCONFIG: ${{ secrets.AEM_CM_INTEGRATION }}
+          PROGRAMID: 95403
+          PIPELINEID: 13686747
+#          CLIENTID: ${{ secrets.CM_CLIENT_ID }}
+#          CLIENTSECRET: ${{ secrets.CM_CLIENT_SECRET }}
+#          TECHNICALACCOUNTID: ${{ secrets.CM_TA_EMAIL }}
+#          IMSORGID: ${{ secrets.CM_ORG_ID }}
+#          KEY: ${{ secrets.CM_PRIVATE_KEY }}
