@@ -14,7 +14,7 @@ jobs:
       - name: Push GitHub branch to Cloud Manager git repository
         uses: wei/git-sync@v3
         with:
-          source_repo: ${{ github.action_repository }}
+          source_repo: ${{ github.repository }}
           source_branch: "refs/remotes/source/*"
           destination_repo: "https://${{ env.cm_git_username }}:${{ env.cm_git_password }}@${{ env.cm_git_url }}"
           destination_branch: "refs/heads/*"
