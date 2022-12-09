@@ -7,6 +7,7 @@ jobs:
     name: Sync to Cloud Manager git repository
     runs-on: ubuntu-latest
     env:
+      # cm_git_url: ${{ secrets.CM_GIT_URL }}
       cm_git_username: ${{ secrets.CM_GIT_USERNAME }}
       cm_git_password: ${{ secrets.CM_GIT_PASSWORD }}
     steps:
@@ -15,9 +16,8 @@ jobs:
         with:
           source_repo: "adobe-basel/aem-project-template"
           source_branch: "refs/remotes/source/*"
-          destination_repo: "https://${{ env.cm_git_username }}:${{ env.cm_git_password }}@git.cloudmanager.adobe.com/stage-rdeteststage/RDEGW-p60706-uk13696"
+          destination_repo: "https://${{ env.cm_git_username }}:${{ env.cm_git_password }}@${{ env.CM_GIT_URL }}"
           destination_branch: "refs/heads/*"
-
   pipeline-execution:
     name: Execute Cloud Manager Code Quality Pipeline
     needs: git-sync
