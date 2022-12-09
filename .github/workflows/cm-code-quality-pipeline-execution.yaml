@@ -7,16 +7,16 @@ jobs:
     name: Sync to Cloud Manager git repository
     runs-on: ubuntu-latest
     env:
-      # cm_git_url: ${{ secrets.CM_GIT_URL }}
+      cm_git_url: ${{ secrets.CM_GIT_URL }}
       cm_git_username: ${{ secrets.CM_GIT_USERNAME }}
       cm_git_password: ${{ secrets.CM_GIT_PASSWORD }}
     steps:
       - name: Push GitHub branch to Cloud Manager git repository
         uses: wei/git-sync@v3
         with:
-          source_repo: "adobe-basel/aem-project-template"
+          source_repo: ${{ github.action_repository }}
           source_branch: "refs/remotes/source/*"
-          destination_repo: "https://${{ env.cm_git_username }}:${{ env.cm_git_password }}@${{ env.CM_GIT_URL }}"
+          destination_repo: "https://${{ env.cm_git_username }}:${{ env.cm_git_password }}@${{ env.cm_git_url }}"
           destination_branch: "refs/heads/*"
   pipeline-execution:
     name: Execute Cloud Manager Code Quality Pipeline
@@ -27,18 +27,17 @@ jobs:
       - name: Get or Create Cloud Manager Pipeline
         run: echo "Checking for existing Cloud Manager Pipeline for branch..."
       - name: Create Cloud Manager Pipeline Execution
-        uses: adobe-basel/aio-cloudmanager-pipeline-action@v0.0.7
+        uses: adobe-basel/aio-cloudmanager-pipeline-action@v0.0.8
         env:
-          AIO_CLI_ENV: prod
+          AIO_CLI_ENV: stage
           LOG_LEVEL: debug
         with:
           BASEURL: ${{ secrets.CM_BASE_URL }}
-          IMSCONFIG: ${{ secrets.AEM_CM_INTEGRATION }}
+          #IMSCONFIG: ${{ secrets.AEM_CM_INTEGRATION }}
           PROGRAMID: ${{ secrets.AEM_CM_PROGRAM_ID }}
           PIPELINEID: 478904
-#          CLIENTID: ${{ secrets.CM_CLIENT_ID }}
-#          CLIENTSECRET: ${{ secrets.CM_CLIENT_SECRET }}
-#          TECHNICALACCOUNTID: ${{ secrets.CM_TA_EMAIL }}
-#          IMSORGID: ${{ secrets.CM_ORG_ID }}
-#          KEY: ${{ secrets.CM_PRIVATE_KEY }}
-#          PROGRAMID: ${{ secrets.CM_PROGRAM_ID }}
+          CLIENTID: ${{ secrets.CM_CLIENT_ID }}
+          CLIENTSECRET: ${{ secrets.CM_CLIENT_SECRET }}
+          TECHNICALACCOUNTID: ${{ secrets.CM_TA_EMAIL }}
+          IMSORGID: ${{ secrets.CM_ORG_ID }}
+          KEY: ${{ secrets.CM_PRIVATE_KEY }}
