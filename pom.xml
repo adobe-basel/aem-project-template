@@ -254,7 +254,7 @@ Bundle-DocURL:
             </dependency>
           </dependencies>
         </plugin>
-        <plugin>
+        <plugin> 
           <groupId>com.adobe.aem</groupId>
           <artifactId>aemanalyser-maven-plugin</artifactId>
           <version>1.5.8</version>
